@@ -24,4 +24,8 @@ export class UserService {
   async findByEmail(email: string): Promise<User | null> {
     return this.userRepository.findOneBy({ email });
   }
+
+  async compareUserPassword(password: string, newPassword: string) {
+    return this.passwordUtils.compare(newPassword, password);
+  }
 }
